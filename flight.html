@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2 class="logo">
+            <img src="logo.jpg" alt="RideBooking Logo">
+        </h2>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#help">Help</a></li>
+            <li><button class="login-btn" onclick="openLoginModal()">Login</button></li>
+        </ul>
+    </nav>
+
+    <!-- Flight Booking Section -->
+    <section class="flight-booking">
+        <h1>Book Your Flight</h1>
+        <p>Enter your details and find the best flights for your trip.</p>
+
+        <form action="flight-results.html" method="get" class="input-container">
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-plane-departure"></i></span>
+                <input type="text" name="from" placeholder="Departure City" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-plane-arrival"></i></span>
+                <input type="text" name="to" placeholder="Destination City" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                <input type="date" name="date" required>
+            </div>
+
+            <div class="button-container">
+                <button class="black-btn" type="submit">Search Flights</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

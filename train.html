@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2 class="logo">
+            <img src="logo.jpg" alt="RideBooking Logo">
+        </h2>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#help">Help</a></li>
+            <li><button class="login-btn">Login</button></li>
+        </ul>
+    </nav>
+
+    <!-- Train Ticket Booking Section -->
+    <section class="ride-booking">
+        <h1>Book Your Train Ticket</h1>
+        <p>Travel comfortably and conveniently with our train booking service.</p>
+
+        <form action="train-results.html" method="get" class="input-container">
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-train"></i></span>
+                <input type="text" name="from" placeholder="From" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <input type="text" name="to" placeholder="To" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-calendar"></i></span>
+                <input type="date" name="date" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-users"></i></span>
+                <select name="passengers" required>
+                    <option value="1">1 Passenger</option>
+                    <option value="2">2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4 Passengers</option>
+                    <option value="5">5 Passengers</option>
+                    <option value="6">6 Passengers</option>
+                </select>
+            </div>
+
+            <div class="button-container">
+                <button class="black-btn" type="submit">Search Trains</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

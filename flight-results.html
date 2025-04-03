@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Flights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2 class="logo">
+            <img src="logo.jpg" alt="RideBooking Logo">
+        </h2>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#help">Help</a></li>
+            <li><button class="login-btn" onclick="openLoginModal()">Login</button></li>
+        </ul>
+    </nav>
+
+    <!-- Flight Results Section -->
+    <section class="flight-results">
+        <h1>Available Flights</h1>
+        <p id="route-info"></p>
+
+        <div class="flight-list">
+            <div class="flight-item">
+                <h3>SpiceJet -101</h3>
+                <p>Departure: 06:00 AM | Arrival: 09:00 AM</p>
+                <p>Duration: 3h | Non-stop</p>
+            </div>
+            <div class="flight-item">
+                <h3>Qatar Airways-202</h3>
+                <p>Departure: 10:00 AM | Arrival: 01:30 PM</p>
+                <p>Duration: 3.5h | Non-stop</p>
+            </div>
+            <div class="flight-item">
+                <h3>Air India-303</h3>
+                <p>Departure: 02:00 PM | Arrival: 05:00 PM</p>
+                <p>Duration: 3h | Non-stop</p>
+            </div>
+        </div>
+
+        <button class="black-btn" onclick="goBack()">Search Again</button>
+    </section>
+
+    <script>
+        // Get query parameters
+        const params = new URLSearchParams(window.location.search);
+        const from = params.get('from');
+        const to = params.get('to');
+        const date = params.get('date');
+
+        // Display route information
+        document.getElementById('route-info').textContent = `Flights from ${from} to ${to} on ${date}`;
+
+        // Function to go back to the search page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

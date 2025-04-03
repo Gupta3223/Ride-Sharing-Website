@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Reservation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2 class="logo">
+            <img src="logo.jpg" alt="RideBooking Logo">
+        </h2>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#help">Help</a></li>
+            <li><button class="login-btn" onclick="openLoginModal()">Login</button></li>
+        </ul>
+    </nav>
+
+    <!-- Bus Reservation Section -->
+    <section class="bus-reservation">
+        <h1>Book Your Bus Ticket</h1>
+        <p>Select your route, date, and seat to travel with ease.</p>
+
+        <form action="bus-results.html" method="get" class="input-container">
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <input type="text" name="from" placeholder="Enter starting point" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <input type="text" name="to" placeholder="Enter destination" required>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                <input type="date" name="date" required>
+            </div>
+
+            <div class="button-container">
+                <button class="black-btn" type="submit">Search Buses</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

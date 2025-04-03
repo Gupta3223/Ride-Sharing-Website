@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripJoy ride</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2 class="logo">
+            <img src="logo.jpg" alt="RideBooking Logo">
+        </h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#help">Help</a></li>
+            <li><button class="login-btn">Login</button></li>
+        </ul>
+    </nav>
+
+    <section class="ride-booking">
+        <h1>Need a Cab for now? </h1>
+        <p>Add your trip details, hop in, and go.</p>
+
+        <div class="input-container">
+            <div class="input-box">
+                <span class="icon">•</span>
+                <input type="text" placeholder="Enter location">
+                <span class="icon"><i class="fas fa-location-arrow"></i></span>
+            </div>
+
+            <div class="input-box">
+                <span class="icon">▪</span>
+                <input type="text" placeholder="Enter destination">
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="black-btn">See prices</button>
+        </div>
+    </section>
+
+
+    <section id="home" class="hero">
+        <h1>Book Your Ride Easily!</h1>
+        <p>Choose from Bus, Train, Cab, Taxi, Rickshaw, and Flights</p>
+        <div class="booking-buttons">
+            <a href="bus.html" class="book-btn"><i class="fas fa-bus"></i> Bus</a>
+            <a href="train.html" class="book-btn"><i class="fas fa-train"></i> Train</a>
+            <a href="cab.html" class="book-btn"><i class="fas fa-taxi"></i> Cab</a>
+            <a href="flight.html" class="book-btn"><i class="fas fa-plane"></i> Flight</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>
+                    TripJoy was founded in 2025 with a simple yet powerful mission: to connect people seamlessly and affordably through rides to help them reach their destination. We believe that transportation should be accessible to everyone, and that sharing rides is not only cost-effective but also environmentally friendly. We started with a small community in INDIA and have since grown to serve users across many Nations across the World.
+                </p><br><br>
+
+                <h3>Our Mission</h3>
+                <p>
+                    Our mission is to revolutionize the way people travel by providing a safe, reliable, and convenient ride-sharing platform. We are committed to:
+                    <li><b>Affordability:</b> Making travel accessible to all budgets.</li>
+                    <li><b>Sustainability:</b> Reducing our carbon footprint through shared transportation.</li>
+                    <li><b>Community:</b> Building a community of riders and drivers who support each other.</li>
+                    <li><b>Convenience:</b> Providing a user-friendly platform for easy booking and ride management.</li>
+                    <li><b>Safety:</b> Ensuring the safety of our riders and drivers through robust safety measures.</li>
+                </p><br><br>
+
+                <h3>Our Values</h3>
+                <p>
+                    We are guided by the following core values:
+                    <li><b>Integrity:</b> We operate with honesty and transparency in all our interactions.</li>
+                    <li><b>Respect:</b> We treat all members of our community with respect and courtesy.</li>
+                    <li><b>Innovation:</b> We continuously strive to improve our platform and services.</li>
+                    <li><b>Customer Focus:</b> We prioritize the needs of our riders and drivers.</li>
+                    <li><b>Responsibility:</b> We are committed to being a responsible and ethical company.</li>
+                </p><br><br>
+
+                <h3>Join Our Community</h3>
+                <p>
+                    Whether you're a rider looking for a convenient and affordable way to travel, or a driver wanting to earn extra income, we invite you to join our growing community. Together, we can make transportation better for everyone. <a href="#" id="sign-up-link">Sign up today!</a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="help">
+        <h2>Help</h2>
+        <h3>Welcome to TripJoy Support</h3>
+        <p>We're here to help. Looking for customer service contact information? Explore support resources for the relevant products below to find the best way to reach out about your issue.</p>
+        <br>
+        <h4 align="center">Email: support@TripJoy.com | Phone: +1234567890</h4>
+    </section>
+
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <form>
+                <input type="email" placeholder="Email" required> <br>
+                <input type="password" placeholder="Password" required> <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit">Login</button><br>
+                <p>New user? <a href="#" id="register-link">Register Here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <h2>Register</h2>
+            <form>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="Email" required>
+                <select>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+                <input type="date" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
