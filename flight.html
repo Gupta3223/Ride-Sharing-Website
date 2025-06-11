@@ -1,51 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Booking</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="flight.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <h2 class="logo">
-            <img src="logo.jpg" alt="RideBooking Logo">
-        </h2>
-        <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#help">Help</a></li>
-            <li><button class="login-btn" onclick="openLoginModal()">Login</button></li>
-        </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h2 class="logo">
+      <img src="logo.jpg" alt="RideBooking Logo" />
+    </h2>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#help">Help</a></li>
+      <li><button class="login-btn" onclick="openLoginModal()">Login</button></li>
+    </ul>
+  </nav>
 
-    <!-- Flight Booking Section -->
-    <section class="flight-booking">
-        <h1>Book Your Flight</h1>
-        <p>Enter your details and find the best flights for your trip.</p>
+  <!-- Flight Booking Section -->
+  <section class="flight-booking">
+    <div class="container">
+      <h1>Book Your Flight</h1>
+      <p>Search flights based on your preferred class and destination.</p>
 
-        <form action="flight-results.html" method="get" class="input-container">
-            <div class="input-box">
-                <span class="icon"><i class="fas fa-plane-departure"></i></span>
-                <input type="text" name="from" placeholder="Departure City" required>
-            </div>
+      <form action="flight-results.html" method="get" class="flight-form">
+        <div class="form-row">
+          <div class="input-box">
+            <label for="from"><i class="fas fa-plane-departure"></i> From</label>
+            <input type="text" id="from" name="from" placeholder="Departure City" required />
+          </div>
 
-            <div class="input-box">
-                <span class="icon"><i class="fas fa-plane-arrival"></i></span>
-                <input type="text" name="to" placeholder="Destination City" required>
-            </div>
+          <div class="input-box">
+            <label for="to"><i class="fas fa-plane-arrival"></i> To</label>
+            <input type="text" id="to" name="to" placeholder="Destination City" required />
+          </div>
+        </div>
 
-            <div class="input-box">
-                <span class="icon"><i class="fas fa-calendar-alt"></i></span>
-                <input type="date" name="date" required>
-            </div>
+        <div class="form-row">
+          <div class="input-box">
+            <label for="date"><i class="fas fa-calendar-alt"></i> Travel Date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
 
-            <div class="button-container">
-                <button class="black-btn" type="submit">Search Flights</button>
-            </div>
-        </form>
-    </section>
+          <div class="input-box">
+            <label for="class"><i class="fas fa-chair"></i> Class</label>
+            <select id="class" name="class">
+              <option value="Economy">Economy</option>
+              <option value="Business">Business</option>
+              <option value="First">First</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="black-btn">Search Flights</button>
+        </div>
+      </form>
+    </div>
+  </section>
 </body>
 </html>

@@ -17,7 +17,17 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#help">Help</a></li>
-            <li><button class="login-btn">Login</button></li>
+            <li class="user-menu-container">
+                <button class="login-btn">Login</button>
+                <div class="user-icon hidden" id="user-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="dropdown-menu hidden" id="dropdown-menu">
+                  <ul>
+                    <li id="logout">Log out</li>
+                  </ul>
+                </div>
+            </li>              
         </ul>
     </nav>
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - TripJoy Ride</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <h2 class="logo"><img src="logo.jpg" alt="RideBooking Logo"></h2>
+  <ul>
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="index.html#help">Help</a></li>
+    <li><button class="login-btn" onclick="openLoginModal()">Login</button></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="summary">
+    <h2>Payment Summary</h2>
+    
+    <!-- Dynamic label -->
+    <p><strong id="ride-label">Ride:</strong> <span id="ride-name"></span></p>
+    <p><strong>Date:</strong> <span id="journey-date"></span></p>
+    <p><strong>From:</strong> <span id="from-station"></span></p>
+    <p><strong>To:</strong> <span id="to-station"></span></p>
+    <p><strong>Passengers:</strong> <span id="passenger-count"></span></p>
+
+    <!-- Train specific -->
+    <div id="train-details" style="display:none;">
+      <p><strong>Class:</strong> <span id="train-class">Third AC (3A)</span></p>
+      <p><strong>Fare per Passenger:</strong> ₹<span id="fare-per-passenger-train"></span></p>
+    </div>
+
+    <!-- Bus specific -->
+    <div id="bus-details" style="display:none;">
+      <p><strong>Bus Operator:</strong> <span id="bus-operator"></span></p>
+      <p><strong>Bus Type:</strong> <span id="bus-type"></span></p>
+      <p><strong>Fare per Passenger:</strong> ₹<span id="fare-per-passenger-bus"></span></p>
+    </div>
+
+    <div class="total">Total Fare: ₹<span id="total-fare"></span></div>
+  </div>
+
+  <div class="payment-form">
+    <h2>Enter Payment Details</h2>
+    <form id="paymentForm">
+      <label for="name">Name on Card</label>
+      <input type="text" id="name" required>
+
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" maxlength="16" required>
+
+      <label for="expiryMonth">Expiry Date</label>
+      <div class="expiry-fields">
+        <select id="expiryMonth" required>
+          <option value="">MM</option>
+          <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option>
+        </select>
+        <select id="expiryYear" required>
+          <option value="">YY</option>
+          <option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+        </select>
+      </div>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" maxlength="3" required>
+
+      <label>Payment Mode</label>
+      <div class="payment-mode">
+        <label><input type="radio" name="mode" value="card" checked> Card</label>
+        <label><input type="radio" name="mode" value="upi"> UPI</label>
+        <label><input type="radio" name="mode" value="wallet"> Wallet</label>
+      </div>
+
+      <button type="submit">Pay ₹<span id="pay-amount"></span></button>
+      <div class="secure">🔒 Your payment is secure and encrypted.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const rideType = localStorage.getItem('rideType'); // 'bus' or 'train'
+  const journeyDate = localStorage.getItem('journeyDate');
+  const passengerCount = parseInt(localStorage.getItem('seatsBooked') || 1);
+  const selectedRide = JSON.parse(localStorage.getItem('selectedBus') || localStorage.getItem('selectedTrain'));
+  const passengerName = localStorage.getItem('passengerName') || 'Passenger';
+
+  if (!rideType || !selectedRide) {
+    alert("No booking data found. Please go back and book a ticket.");
+    window.location.href = "index.html";
+  }
+
+  const isTrain = rideType === 'train';
+  const rideNameElem = document.getElementById('ride-name');
+  const journeyDateElem = document.getElementById('journey-date');
+  const fromElem = document.getElementById('from-station');
+  const toElem = document.getElementById('to-station');
+  const passengerCountElem = document.getElementById('passenger-count');
+  const totalFareElem = document.getElementById('total-fare');
+  const payAmountElem = document.getElementById('pay-amount');
+
+  document.getElementById('ride-label').innerText = isTrain ? 'Train:' : 'Bus:';
+  rideNameElem.innerText = isTrain
+    ? `${selectedRide.trainName || ''} (${selectedRide.trainNumber})`
+    : `${selectedRide.operator} - ${selectedRide.busNumber}`;
+
+  fromElem.innerText = selectedRide.from;
+  toElem.innerText = selectedRide.to;
+  journeyDateElem.innerText = new Date(journeyDate).toDateString();
+  passengerCountElem.innerText = passengerCount;
+
+  const farePerPassenger = selectedRide.fare || 0;
+  const totalFare = farePerPassenger * passengerCount;
+
+  totalFareElem.innerText = totalFare;
+  payAmountElem.innerText = totalFare;
+
+  if (isTrain) {
+    document.getElementById('train-details').style.display = 'block';
+    document.getElementById('fare-per-passenger-train').innerText = farePerPassenger;
+  } else {
+    document.getElementById('bus-details').style.display = 'block';
+    document.getElementById('bus-operator').innerText = selectedRide.operator;
+    document.getElementById('bus-type').innerText = selectedRide.type || 'Standard';
+    document.getElementById('fare-per-passenger-bus').innerText = farePerPassenger;
+  }
+
+  // Payment form submission
+  document.getElementById('paymentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert(`✅ Payment Successful!\n\nThank you, ${passengerName}, for booking a ${rideType} ride with TripJoy.`);
+    window.location.href = "index.html";
+  });
+</script>
+
+</body>
+</html>
